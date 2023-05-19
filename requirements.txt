@@ -1,0 +1,6 @@
+fastapi[all]
+uvicorn[standard]
+pydantic
+autopep8
+mongodb[+srv]
+mongosh
