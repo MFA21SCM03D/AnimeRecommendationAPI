@@ -18,7 +18,12 @@ app.add_middleware(
 
 @app.get("/",tags = ["GET"])
 async def root():
-    return {"message": "Hello Anime World. This is API for Anime."}
+    animeData = []
+    animeResponse =  collection.find()
+    async for i in animeResponse:
+        animeData.append(AnimeData(**i))
+    return ResponseModel(response_code = status.HTTP_200_OK, message = "Success", payload = animeData)
+
 
 @app.get("/anime/{anime_title}", tags = ["GET"])
 async def anime(anime_title: str):
@@ -31,14 +36,6 @@ async def anime(anime_title: str):
     async for i in animeResponse:
         animeTitle.append(AnimeData(**i))
     return ResponseModel(response_code = status.HTTP_200_OK, message = "Success", payload = animeTitle)
-
-@app.get("/anime/", tags = ["GET"])
-async def anime():
-    animeData = []
-    animeResponse =  collection.find()
-    async for i in animeResponse:
-        animeData.append(AnimeData(**i))
-    return ResponseModel(response_code = status.HTTP_200_OK, message = "Success", payload = animeData)
 
 @app.get("/anime/genre/{anime_genre}", tags = ["GET"])
 async def anime(anime_genre: str):

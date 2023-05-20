@@ -7,7 +7,7 @@ import motor.motor_asyncio
 # Certifi to bypass the SSL error and the connection is se to the primary cluster node using readPreference=primary.
 # Motor is mongodb driver for python which is much easier to use.
 
-mongoURL = 'mongodb+srv://mayurdeshmukh2442:' + urllib.parse.quote("mongoDB@123") + '@fastapi.yqk7twe.mongodb.net/testngodb.net/test/'
+mongoURL = 'mongodb+srv://mayurdeshmukh2442:' + urllib.parse.quote("mongoDB@123") + '@fastapi.yqk7twe.mongodb.net/'
 
 try:
     # connection = pymongo.MongoClient(mongoURL+ "?retryWrites=true&w=majority&readPreference=primary", tlsCAFile=certifi.where(), serverSelectionTimeoutMS=1)
