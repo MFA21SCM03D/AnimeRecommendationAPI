@@ -28,6 +28,9 @@ class ResponseModel(BaseModel):
     response_code: str
     message: str
     payload: list
+    total: int
+    page: int
+    limit: int
 
 
 # @validator('genre', pre=True, whole = True)
